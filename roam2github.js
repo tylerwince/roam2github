@@ -45,6 +45,7 @@ async function init() {
         // const browser = await puppeteer.launch({ headless: false }) // to test locally and see what's going on
 
         const page = await browser.newPage()
+        await page.setDefaultTimeout(0)
         await page._client.send('Page.setDownloadBehavior', { behavior: 'allow', downloadPath: download_dir })
 
         await roam_login(page)
